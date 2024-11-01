@@ -342,7 +342,7 @@ Storj~\cite{storj2018storj}、CoopEdge~\cite{yuan2021coopedge}和PipeEdge~\cite{
 在分析物联网数据时，我们观察到物联网数据变化缓慢，在短时间内很少出现突然变化。
 对于这些相似的数据，局部敏感哈希（LSH）算法可以从相似的原始数据中生成相似的哈希结果。
 LSH确保类似的物联网数据即使在散列后也保持相似。
-因此，我们提出了一种新的基于LSH树的验证机制（§-\ref{sec:LSH}），该机制采用LSH而不是传统Merkle树中使用的通用散列。
+因此，我们提出了一种新的基于LSH树的验证机制（§-\ref{sec:lsh}），该机制采用LSH而不是传统Merkle树中使用的通用散列。
 通过差分传输LSH哈希值，可以显著减小传输数据的大小。
 
 \chapter{平台设计}
@@ -521,7 +521,7 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 
 \begin{figure}[t]
     \centering
-	\begin{minipage}{0.85\linewidth}
+	\begin{minipage}{0.65\linewidth}
         \centering
         \includegraphics[width=1\linewidth]{timechain/lsh-tree.pdf}
         \caption{LSH树结构}
@@ -571,7 +571,7 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 	\label{fig:tail_merging_tail}
 \end{figure}
 
-在一个完整的二叉树中，LSH-tree可以通过成对地批量合并数据来执行局部敏感哈希。
+在一个完整的二叉树中，LSH树可以通过成对地批量合并数据来执行局部敏感哈希。
 然而，如果批处理中的数据数量不足以形成完整的二叉树，那么像Merkle树一样构建哈希树将导致相似性的丧失。
 例如，在~\autoref{fig:tail_merging_lsh}中，一批中有7个数据点，对于一个完整的二叉树来说，这个大小是不满足的。
 在第一轮散列中，前6个数据成对执行LSH。
