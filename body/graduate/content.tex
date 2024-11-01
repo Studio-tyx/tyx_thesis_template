@@ -617,6 +617,7 @@ Merkle树通过计算数据块的哈希值并将这些哈希值逐层组织成�
 
 \section{总体性能}
 
+\subsection{存储延迟}
 \begin{figure*}[t]
     \centering
 	\begin{minipage}{0.48\linewidth}
@@ -633,8 +634,6 @@ Merkle树通过计算数据块的哈希值并将这些哈希值逐层组织成�
         \label{fig:query_rt_eval}
 	\end{minipage}
 \end{figure*}
-
-\subsection{存储延迟}
 我们比较了不同批处理大小下的存储延迟。
 由于物联网设备数量众多，数据生成速度快，我们将存储延迟定义为存储10000个数据的总延迟，而不是关注单个数据的微延迟。
 如~\autoref{fig:storage_rt_eval}所示，对于不同的批处理大小，TimeChain的存储延迟低于SEBDB和FileDES。
@@ -728,9 +727,10 @@ TimeChain的传输延迟明显低于FileDES和SEBDB。
 \section{消融实验}
 在本小节中，我们通过三项消融研究证明了我们的设计的改进效果。
 
+\subsection{聚类算法}
 \begin{figure*}[t]
     \centering
-	\begin{minipage}{0.8\linewidth}
+	\begin{minipage}{0.96\linewidth}
         \subfloat[查询延迟]{
             \centering
             \includegraphics[width=0.45\textwidth]{timechain/ratiocut_latency_eval.pdf}
@@ -745,7 +745,6 @@ TimeChain的传输延迟明显低于FileDES和SEBDB。
     \end{minipage}
 \end{figure*}
 
-\subsection{聚类算法}
 我们比较了聚类算法的效果，并将TimeChain与SEBDB进行了比较。
 如~\autoref{fig:ratiocut_latency_eval}所示，与SEBDB相比，TimeChain的网络传输延迟减少了40.3\%。
 SEBDB中的打包节点没有考虑用户查询的规律性，聚合数据也没有根据数据源的类型进行划分。
@@ -754,7 +753,7 @@ TimeChain使用光谱聚类算法根据用户请求的特征对来自特定传�
 
 \begin{figure*}[t]
     \centering
-    \begin{minipage}{0.8\linewidth}
+    \begin{minipage}{0.96\linewidth}
         \vspace{0.5ex}
         \subfloat[查询延迟]{
             \centering
@@ -782,7 +781,7 @@ CRUSH~\cite{weil2006ceph}根据节点的物理位置选择最近的节点进行�
 
 \begin{figure*}[t]
     \centering
-    \begin{minipage}{0.8\linewidth}
+    \begin{minipage}{0.96\linewidth}
         \vspace{-0.5ex}
         \subfloat[查询延迟]{
             \centering
