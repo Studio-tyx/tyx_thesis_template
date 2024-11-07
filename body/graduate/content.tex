@@ -1,4 +1,7 @@
 % 基于区块链的物联网时序数据高效存储技术研究
+
+\tyxcmt{单元}大小
+
 \chapter{绪论}
 \section{研究背景及意义}
 物联网（WoT）是W3C领导的一个重要趋势，旨在通过采用经过验证的Web技术来解决物联网（IoT）互操作性问题。
@@ -163,12 +166,12 @@ FileDES~\cite{xu2024filedes}专注于数据的加密存储，并引入了零知�
 物联网数据的特点决定了需要更为轻量级和高效的数据存储方案，以更好地应对数据生成量大、频繁性高的特点，同时降低存储和处理成本。
 因此，对于物联网大规模数据存储的需求，寻找轻量、高效、可信的数据解决方案是一个挑战。
 
-\chapter{平台概述}
+\chapter{基于区块链存储系统的测量与研究}
 \label{sec:baseline}
 在本章中，我们先提出了一种基本的链下存储系统。
 对于这个基本系统，我们进行了一些性能测试，并基于基本系统的性能瓶颈，提出了高效链下存储系统的架构。
 
-\section{基本链下存储架构}
+\section{基于区块链存储系统的架构}
 
 \begin{figure}[t]
     \centering
@@ -210,7 +213,7 @@ FileDES~\cite{xu2024filedes}专注于数据的加密存储，并引入了零知�
 \ding{175}\textit{返回}：
 网关将数据返回给数据所有者。
 
-\section{基本架构测量研究}
+\section{基于区块链存储系统的测量}
 在本节中，我们进行了一项初步研究，以评估基于区块链的基本存储系统的性能。
 我们实现了基于Hyperledger Fabric的存储系统。
 该测试网络由5个节点组成，其中1个节点既是网关，4个节点是卫星。
@@ -246,7 +249,7 @@ FileDES~\cite{xu2024filedes}专注于数据的加密存储，并引入了零知�
 不幸的是，结果显示，批处理存储解决方案的查询性能相对较差，在不同批处理大小下的平均延迟为165.4ms，无法满足许多物联网场景的需求。
 例如，自动驾驶应用程序的延迟小于50ms，地震监测的延迟小于100ms。
 
-\section{性能挑战}
+\section{性能瓶颈的根本原因}
 为了找出查询性能不佳的原因，我们进行了深入调查，并将原因总结为以下三点：
 
 \begin{figure*}[t]
@@ -345,15 +348,13 @@ LSH确保类似的物联网数据即使在散列后也保持相似。
 因此，我们提出了一种新的基于LSH树的验证机制（§-\ref{sec:lsh}），该机制采用LSH而不是传统Merkle树中使用的通用散列。
 通过差分传输LSH哈希值，可以显著减小传输数据的大小。
 
-\chapter{平台设计}
-
-\section{自适应聚合机制}
+\chapter{面向链下存储的自适应聚合机制}
 \label{sec:packaging}
 
 对于数据打包，我们构建了一个基于历史查询的自适应UWG来表征动态查询范围。
 通过运行自适应UWG的谱聚类算法，我们根据随机用户查询将原始数据打包成批。
 
-\subsection{基于历史查询的自适应图}
+\section{基于历史查询的自适应图构建过程}
 \label{sec:UWG}
 
 \begin{table}
@@ -394,7 +395,7 @@ LSH确保类似的物联网数据即使在散列后也保持相似。
     \end{split}
 \end{equation}
 
-\subsection{基于谱聚类算法的封装机制}
+\section{基于谱聚类算法的封装机制}
 \label{sec:ratiocut}
 由于谱聚类算法适用于处理不规则形状的分类问题，我们使用它来打包数据。
 \ref{algo:package}显示TimeChain的整个打包过程。
@@ -443,10 +444,12 @@ LSH确保类似的物联网数据即使在散列后也保持相似。
     \end{algorithmic}
 \end{algorithm}
 
-\section{基于共识协议的节点选择机制}
+\section{本章小结}
+
+\chapter{基于共识协议的节点选择机制}
 \label{sec:consensus}
 
-\subsection{共识过程}
+\section{结合共识的节点选择过程}
 
 \begin{figure}[t]
     \centering
@@ -504,7 +507,7 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 在\textit{commit}阶段，所有节点都将收到其他节点推荐的最佳存储决策。
 当相同的预提交消息的数量超过$f+1$时，此节点将向客户端提交最佳存储节点。
 
-\subsection{安全分析}
+\section{共识过程的安全性分析}
 我们在这里考虑这一共识协议的安全性。
 由于TimeChain的共识协议只是基于PBFT添加了额外的信息，我们只考虑\textit{prepare}和\textit{pre-commit}阶段额外信息带来的安全风险。
 在\textit{prepare}阶段，如果一个节点伪造了自己的分数，网关可以很容易地检查分数的真实性，因为评估数据源都可以在链上找到。
@@ -513,11 +516,13 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 在\textit{pre-commit}阶段，如果任何节点伪造了最终得分，则不会影响最终结果。
 这是因为对于包含$f$拜占庭节点的$3f+1$节点的网络，必须在\textit{commit}阶段获得相同的结果。
 
-\section{基于LSH树的验证机制}
+\section{本章小结}
+
+\chapter{基于LSH树的验证机制}
 \label{sec:lsh}
 为了解决因传输大量验证数据而导致的高网络传输延迟问题，我们提出了一种新的LSH树，并通过尾部合并策略优化其空间。
 
-\subsection{LSH树}
+\section{LSH树结构与工作流程}
 
 \begin{figure}[t]
     \centering
@@ -549,7 +554,7 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 这已经超过了MD5和SHA1标准，这些标准现在在物联网场景中非常常用~\cite{chi2017hashing,landge2018secured}。
 对于靠近根节点的LSH树的层，尽管哈希差位数较少，但这对篡改原始数据没有意义。
 
-\subsection{尾部合并}
+\section{LSH树的尾部合并机制}
 
 \begin{figure}[t]
     \centering
@@ -586,8 +591,12 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 这将传输的哈希值大小从12位减少到7位，代价是在第一轮哈希中只传输了1个不同的位。
 这样，在进行完整性证明时，我们只需要传输不同的哈希位，从而减少了传输的数据量。
 
-\chapter{性能评价}
-在本节中，我们将评估TimeChain的存储性能和查询性能。
+\section{本章小结}
+
+\chapter{实验结果与分析}
+在本章中，我们首先从存储延迟和查询延迟方面评估了TimeChain的总体性能，证明TimeChain设计的有效性；
+其次，在不同查询负载、不同存储网络的条件下分析了TimeChain的具体表现；
+最后，我们针对提出的三个技术点进行了消融实验，对比技术点带来的性能提升。
 
 \section{实验设置}
 我们基于一些开源项目（如Hyperledger Fabric和IPFS）实现TimeChain。
@@ -597,7 +606,7 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 存储节点和网关之间的距离从800公里到6000公里不等，平均为4000公里。
 考虑到一些存储提供商存在欺诈行为，远程存储的数据将无法访问，概率为60\%。
 我们使用PC作为物联网传感器的网关节点，它配备了Intel(R)Core i7-13700K CPU@5.4GHz、32GB DRAM，并运行Ubuntu 22.04。
-默认批大小和查询大小设置为20。
+默认存储单元大小和查询大小设置为20。
 
 \subsection{基线}
 \textbf{SEBDB}~\cite{zhu2019sebdb}是链上数据库的典型代表。
@@ -707,7 +716,7 @@ TimeChain的传输延迟明显低于FileDES和SEBDB。
     \end{minipage}
 \end{figure}
 
-\section{不同参数下的性能}
+\section{性能影响因素评估}
 \subsection{不同查询大小下的查询延迟}
 我们比较了三种不同查询大小数据集（Bridge、RT和WX）的查询性能，结果如~\autoref{fig:query_diff_dataset}所示。
 三个数据集中工作负载的平均查询大小分别为10、20和40。
@@ -806,5 +815,6 @@ CRUSH~\cite{weil2006ceph}根据节点的物理位置选择最近的节点进行�
 
 \section{本章小结}
 
-
 \chapter{总结与展望}
+\section{总结研究}
+\section{未来工作}
