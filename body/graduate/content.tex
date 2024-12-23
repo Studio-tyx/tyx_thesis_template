@@ -1,4 +1,4 @@
-% 基于区块链的物联网时序数据高效存储技术研究
+% 基于区块链的物联网时序数据高效可信存储技术研究
 
 \chapter{绪论}
 \section{研究背景及意义}
@@ -11,7 +11,7 @@
 \begin{figure}[t]
     \centering
     \includegraphics[width=1\linewidth]{timechain/iot.pdf}
-    \caption{物联网设备数量预测}
+    \caption{2015-2027年全球物联网设备预测数量}
     \label{fig:iot}
 \end{figure}
 
@@ -59,14 +59,14 @@ TimeChain分别针对测量中发现的三个性能瓶颈提出了自适应聚�
 该方案将数据分成多个批次，仅将每批数据的哈希值存储在链上，并将完整的原始数据保存在链外。
 这种批处理存储方法大大减少了数据开销。
 
-本文基于Hyperledger Fabric和IPFS等开源组件实现了该系统，并基于YCSB数据集对该方案的性能进行了测量。
+本文基于Hyperledger Fabric~\cite{hyperledger}和星际文件系统（InterPlanetary File System，IPFS）~\cite{benet2014ipfs}等开源组件实现了该系统，并基于YCSB数据集对该方案的性能进行了测量。
 结果表明，与每个数据单独存储相比，将数据批量存储的存储延迟平均减少了37.4倍。
 这种存储性能的显著提升使得区块链支持物联网数据存储成为可能。
 
 然而，不可否认的是，这样的批处理方案会影响查询性能。
 具体来说，批处理存储的平均延迟达到了165.4ms，这一延迟水平对于许多对实时性要求高的物联网应用来说是不可接受的。
 以自动驾驶为例，其对延迟的要求是低于50ms，而在地震监测领域，理想的延迟更是要低于100ms。
-为了深入理解这一性能瓶颈，本研究详细分析了影响查询性能的三个关键因素：
+为了深入理解这一性能瓶颈，本研究详细分析了影响查询性能的三个关键原因：
 
 \begin{enumerate}
     \item \textbf{范围查询跨越多个批处理单元。}
@@ -101,12 +101,12 @@ TimeChain分别针对测量中发现的三个性能瓶颈提出了自适应聚�
     选择过程的正确性指的是选择的节点传输时延较短、提供存储服务质量较高，选择过程的安全性则指的是决策过程本身不会受到单点故障或恶意节点的影响。
     对于选择过程的正确性，受已有方案的启发，TimeChain同时考虑存储节点信誉、剩余存储空间和传输距离。
     对于选择过程的安全性，目前已有的节点选择机制都是中心化地进行节点选择，这可能会产生单点故障和数据篡改的风险。
-    考虑到共识过程中的两次信息广播过程，为了在去中心化的环境中高效地选择存储节点，本文将共识过程与节点选择相结合，以减少传播延迟。
+    考虑到共识过程中的两次信息广播过程，为了在去中心化的环境中高效地选择存储节点，本文将共识过程与节点选择相结合，借助共识的两次广播过程完成节点选择所需的信息交换，以此减少数据传输和一致性开销。
 
     \item \textbf{在数据验证阶段，本文提出了一种基于局部敏感哈希树的数据完整性验证机制。}
     目前区块链存储系统中常用的验证数据结构，如默克尔树，其构建过程中会产生与原始数据规模相同的哈希值，这会导致传输开销过大。
     针对该问题，本文提出了一种基于局部敏感哈希（Locality Sensitive Hashing，LSH）树的数据完整性验证机制。
-    该机制基于物联网场景下相邻时间序列数据点之间的相似性，通过仅传输证明的非冗余部分显著减少了完整性验证所需的数据。
+    该机制利用物联网场景下相邻时间序列数据点之间的相似性，通过仅传输LSH证明的非冗余部分显著减少了完整性验证所需的数据。
 \end{itemize}
 
 本文基于开源组件实现了TimeChain，并基于此评估TimeChain的性能。
@@ -122,7 +122,7 @@ TimeChain分别针对测量中发现的三个性能瓶颈提出了自适应聚�
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.8\linewidth]{timechain/roadmap.pdf}
-    \caption{基于区块链的物联网时序数据高效存储技术研究内容}
+    \caption{基于区块链的物联网时序数据高效可信存储技术研究内容}
     \label{fig:roadmap}
 \end{figure}
 
@@ -281,7 +281,7 @@ FalconDB~\cite{peng2020falcondb}和Chen等人提出的仲裁模型~\cite{chen202
 由于区块链的不可篡改性，用户可以方便地验证文件的来源和完整性，防止数据篡改和丢失。
 相较于传统的中心化存储系统，基于区块链的文件系统通常不需要中心化的服务器和维护成本，从而降低了整体的运营成本。
 
-FileCoin~\cite{bauer2022filecoin}是建立在星际文件系统（InterPlanetary File System，IPFS）的去中心化文件存储系统。
+FileCoin~\cite{bauer2022filecoin}是建立在IPFS~\cite{benet2014ipfs}上的去中心化文件存储系统。
 IPFS是一种点对点的分布式文件系统，它通过内容寻址来存储和共享文件，使得文件在没有单点故障的分布式网络上可用。
 通过激励机制鼓励用户提供存储服务，FileCoin利用区块链技术确保了文件的完整性和可靠性，同时为用户提供了一种去中心化的存储解决方案。
 如图~\ref{fig:filedes}所示，在FileCoin中，节点可以通过提供存储空间来获取FileCoin代币奖励，从而构建一个分布式的文件存储网络。
@@ -541,7 +541,7 @@ TimeChain的索引结构是R树，可以加速物联网场景中常用的时空�
 存储节点\textit{选择过程的安全性}也非常重要。
 Storj~\cite{storj2018storj}、CoopEdge~\cite{yuan2021coopedge}和PipeEdge~\cite{yuan2023pipeedge}通过一组固定的节点选择服务节点，并通过区块链确认决策。
 换句话说，他们集中决策，但仍然面临单点失败的威胁。
-然而，使用类似于PBFT的投票机制，节点选择过程通常需要多轮任务计算和消息广播。
+然而，使用类似于PBFT~\cite{li2020scalable}的投票机制，节点选择过程通常需要多轮任务计算和消息广播。
 如果共识过程和节点选择过程完全解耦，系统安全将受到威胁。
 为了解决这个问题，本文将节点选择过程与共识相结合，提出了一种基于共识的节点选择机制（§-\ref{sec:consensus}）。
 
@@ -687,10 +687,10 @@ K-means算法首先随机选择$k$个点作为初始质心，然后将每个数�
         \ENSURE 最优聚合结果$P$
         \STATE $S' \gets \{s^a | a \in D \And s^a \subset S\}$ //根据设备ID梳理原始数据
         \STATE $L \gets \Big\{ \sqrt{ (id_a - id_b)^2 + (t_a - t_b)^2 } \Big| \exists_{a,b \in D} \Big\}$ //根据\autoref{eq:weight}初始化权重集$L$
-        \STATE $X^k \gets \{0 | \exists_{a,b \in D} \}$ //将用户查询请求信息$Q^{i-1}$打包成集合$X^k$
+        \STATE $X \gets \{0 | \exists_{a,b \in D} \}$ 
         \FOR{$q^k \in Q^{i}$}
             \IF{$a,b \in q^k$}
-                \STATE \textnormal{使用$x^k_{ab} \gets 1 $更新$X^k$} //将用户查询请求信息$Q^{i-1}$打包成集合$X^k$
+                \STATE \textnormal{使用$x^k_{ab} \gets 1 $更新$X$} //将用户查询请求信息$Q^{i-1}$打包成集合$X^k$
             \ENDIF
         \ENDFOR
         \STATE $L \gets \Big\{ \theta \cdot l_{ab} + (1 - \theta) \cdot x_{ab}^k \Big| \exists_{a,b \in D} \exists_{l_{ab} \in L} \Big\}$ //更新UWG的权重集$L$
@@ -703,21 +703,24 @@ K-means算法首先随机选择$k$个点作为初始质心，然后将每个数�
     \end{algorithmic}
 \end{algorithm}
 
-\tyxcmt{展开介绍算法}
 \ref{algo:package}显示TimeChain的整个打包过程。
 该算法的输入包括输入设备集$D$、数据集$S$和用户的历史查询集$Q^i$。
-本文首先根据设备ID和时间单位将原始数据$S$组织到一个集合$S'$中，该集合以时间单位表示设备的数据（第1行）。
-本文根据\autoref{eq:weight}初始化权重集$L$（第2行）。
-对于上一个滑动窗口中的历史查询记录集合$Q^{i-1}$，本文将用户查询请求信息打包成集合$X^k$（第4-8行）。
-然后，本文根据收集到的查询信息$X^k$更新权重集$L$（第9行）。
-对于UWG$(D,L)$，本文使用谱聚类算法来获得聚合结果$D'$（第10行）。
-根据聚合结果$D'$，本文将设备数据合并到$P$中，这是本文得到的聚合结果（第12-14行）。
+由于该UWG的数据点是忽略时间维度的，因此TimeChain在预处理数据集$S'$时，将同一个设备ID的数据点组织到单位时间窗口长度对应的一个集合中（第1行）。
+TimeChain根据\autoref{eq:weight}计算每个点之间的权重$l$，并将权重组合成权重集$L$（第2行）。
+对于上一个滑动窗口中的历史查询记录集合$Q^{i-1}$，TimeChain根据每个查询涉及的具体数据点整合查询特征集合$X$（第4-8行）。
+即，当$q^k$中包含设备$a$和设备$b$时，$x^k_{ab}$被设置为1。
+否则，$x^k_{ab}$被设置为0。
+然后，本文根据收集到的查询信息$X$，根据$l_{ab} = \theta \cdot l_{ab} + (1 - \theta) \cdot x_{ab}^k$更新权重集$L$（第9行）。
+对于更新后的权重集$L$，TimeChain可以构建出迭代后的UWG$(D,L)$，图中的节点表示设备数据点，边长为数据点之间的查询权重。
+对于UWG$(D,L)$，根据之前的分析，TimeChain使用谱聚类算法来获得聚合结果$D'$（第10行）。
+$D'$中被聚合在一起的点表示经常被一起查询的数据点。
+根据聚合结果$D'$，本文将数据整合到$P$中，这是本文得到的聚合结果（第12-14行）。
 
 \section{本章小结}
 在本章中，本文深入研究了面向链下存储的自适应聚合机制，旨在解决物联网时序数据存储中的查询延迟问题。
 本文发现，不当的数据聚合策略会导致查询过程中需要跨越更多存储单元，从而增加了网络传输的延迟。
 为此，本文提出了一种基于历史查询的自适应无向加权图（UWG）方法，该方法能够精确捕捉用户的查询行为，并根据这些行为将数据分批处理，以优化查询效率。
-本文还提出了一种基于谱聚类算法的封装机制，以更好地处理不规则形状的数据聚类问题。
+对于根据用户查询特征生成的图，本文综合分析了目前的聚类算法，针对当前问题的特点提出了一种基于谱聚类算法的封装机制，以更好地处理不规则形状的数据聚类问题。
 通过这种方法，本文可以更准确地确定哪些节点的数据应放置在同一批中，以提高查询的效率和准确性。
 
 \chapter{基于共识协议的节点选择机制}
@@ -889,7 +892,7 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\linewidth]{timechain/merkle.pdf}
+    \includegraphics[width=0.85\linewidth]{timechain/merkle.pdf}
     \caption{默克尔树的结构}
     \label{fig:merkle}
 \end{figure}
@@ -912,28 +915,24 @@ $\alpha$、$\beta$和$\gamma$是加权参数，这些系数可以根据特定的
 
 \begin{figure}[t]
     \centering
-	\begin{minipage}{0.6\linewidth}
-        \centering
-        \includegraphics[width=1\linewidth]{timechain/lsh-tree.pdf}
-        \caption{LSH树结构}
-        \label{fig:lsh_tree}
-	\end{minipage}
+    \includegraphics[width=0.85\linewidth]{timechain/lsh_constructure.pdf}
+    \caption{LSH树的结构}
+    \label{fig:lsh_tree}
 \end{figure}
 
 深入分析物联网数据的特性后，本文注意到物联网数据的变化通常较为缓慢，短期内不太可能发生剧烈变动。
 针对这些高度相似的数据点，LSH算法能够从相似的原始数据中产生相似的哈希结果。
 LSH算法的这一特性保证了即使在哈希处理之后，相似的物联网数据点仍然保持相似性。
-基于这一观察，本文设计了一种创新的基于LSH树的验证机制，它采用LSH算法替代了传统默克尔树中使用的通用哈希函数。
+基于这一观察，本文设计了一种创新的基于LSH树的验证机制，它采用LSH算法替代了传统默克尔树中使用的通用哈希函数，如~\autoref{fig:lsh_tree}所示。
 通过仅传输LSH哈希值的差异部分，本文能够显著减少在验证过程中需要传输的数据量，从而提高了数据传输的效率。
 
-本文在~\autoref{fig:lsh_tree}中展示了LSH树的一个例子。
+本文在~\autoref{fig:tail_merging_lsh}中展示了LSH树的一个具体例子。
 具体来说，对于批处理中的数据，本文采取类似于默克尔树的步骤，首先对原始数据执行局部敏感哈希。
-对于哈希结果，本文将两个相近的哈希合并为一个字符串，并计算该字符串的局部敏感哈希值。
-然后，本文逐层向上重复这个过程，直到本文得到一个唯一的哈希值，即哈希根。
-在第一级哈希中，由于原始数据的高度相似性，哈希值的许多位是相同的。
-因此，在传输第一级哈希值时，本文只能传输不同的比特以减少传输延迟。
-同样，由于第一级哈希中存在局部相似性，第二级哈希中的许多比特也将相似。
-通过类比，对于每一层的哈希值，本文只需要传输哈希差比特，从而进一步减少了传输的数据量。
+在叶子层，对于相似的原始数据$0...000$和$0...001$，他们的哈希结果也说类似的，分别是\texttt{d...eac}和\texttt{d...ead}。
+因此，在传输第一级哈希值时，TimeChain只需要最后一位哈希值即可。
+针对这两个相似的哈希值，TimeChain也对其做局部敏感哈希，得到的结果与另一组原始数据的哈希值相似，这也可以极大地减少需要传输的哈希位数。
+然后，TimeChain逐层向上重复这个过程，直到得到一个唯一的哈希值，即哈希根。
+通过类比，对于每一层的哈希值，TimeChain只需要传输差分的哈希比特，从而进一步减少了传输的数据量。
 
 \section{LSH树的尾部合并机制}
 
@@ -947,6 +946,14 @@ LSH算法的这一特性保证了即使在哈希处理之后，相似的物联�
 	\end{minipage}
 \end{figure}
 
+在一个完整的二叉树中，LSH树可以通过成对地批量合并数据来执行局部敏感哈希。
+然而，如果批处理中的数据数量不足以形成完整的二叉树，那么像默克尔树一样构建哈希树将导致相似性的丧失。
+在~\autoref{fig:tail_merging_lsh}中，一批中有7个数据点，对于一个完整的二叉树来说，这个大小是不满足的。
+在第一轮哈希中，前6个数据成对执行LSH。
+由于原始数据的相似性，这6个数据的哈希结果是相似的。
+在第二轮哈希中，由于数据5-6和第7个原始数据的第一轮哈希结果非常不同，这两个数据的哈希结果也与数据点1-4的哈希结果非常不一样。
+在执行完整性证明时，需要传输所有这些不同的哈希数据位，这增加了传输的数据量。
+
 \begin{figure}[t]
     \centering
 	\begin{minipage}{0.8\linewidth}
@@ -956,15 +963,6 @@ LSH算法的这一特性保证了即使在哈希处理之后，相似的物联�
 	\caption{尾部合并下的非满二叉LSH树}
 	\label{fig:tail_merging_tail}
 \end{figure}
-
-在一个完整的二叉树中，LSH树可以通过成对地批量合并数据来执行局部敏感哈希。
-然而，如果批处理中的数据数量不足以形成完整的二叉树，那么像默克尔树一样构建哈希树将导致相似性的丧失。
-例如，在~\autoref{fig:tail_merging_lsh}中，一批中有7个数据点，对于一个完整的二叉树来说，这个大小是不满足的。
-在第一轮哈希中，前6个数据成对执行LSH。
-由于原始数据的相似性，这6个数据的哈希结果是相似的。
-在第二轮哈希中，由于数据5-6和第7个原始数据的第一轮哈希结果非常不同，这两个数据的哈希结果也与数据点1-4的哈希结果非常不一样。
-在执行完整性证明时，需要传输所有这些不同的哈希数据位，这增加了传输的数据量。
-
 为了解决这个问题，本文引入了尾部合并策略，将非全二叉树的尾部节点与同一层的前节点合并。
 如~\autoref{fig:tail_merging_tail}所示，在第一轮哈希中，本文将第7个节点和第6个节点合并，以尽可能保持数据的相似性。
 数据6-7的哈希结果是\texttt{efcbeb}，数据5-6的哈希值是\texttt{efcbef}。
@@ -1064,7 +1062,7 @@ $timestamp$是时间戳，记录了数据的时间信息。
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\textwidth]{timechain/storage_rt_eval.pdf}
-    \caption{存储延迟}
+    \caption{TimeChain与基线的存储延迟对比}
     \label{fig:storage_rt_eval}
 \end{figure}
 本文比较了不同聚合单元大小下的存储延迟。
@@ -1083,7 +1081,7 @@ $timestamp$是时间戳，记录了数据的时间信息。
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\textwidth]{timechain/query_rt_eval.pdf}
-    \caption{查询延迟}
+    \caption{TimeChain与基线的查询延迟对比}
     \label{fig:query_rt_eval}
 \end{figure}
 本文比较了不同聚合单元大小的查询延迟，如~\autoref{fig:query_rt_eval}所示。
@@ -1116,7 +1114,7 @@ $timestamp$是时间戳，记录了数据的时间信息。
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\linewidth]{timechain/query_breakdown.pdf}
-    \caption{查询延迟分解}
+    \caption{查询延迟分解对比}
     \label{fig:query_breakdown}
 \end{figure}
 
@@ -1142,6 +1140,15 @@ $timestamp$是时间戳，记录了数据的时间信息。
 
 \section{性能影响因素评估}
 \subsection{不同查询大小下的查询延迟}
+本文比较了三种不同查询大小数据集（Bridge、RT和WX）的查询性能，结果如~\autoref{fig:query_diff_dataset}所示。
+三个数据集中工作负载的平均查询大小分别为40、20和10。
+本文可以发现，这三种解决方案的查询延迟通常随着查询大小的增加而增加，即WX最小，RT次之，Bridge最大。
+这是因为更大的查询大小涉及了更多的聚合单元，因此可能需要去更多的存储节点获取数据，从而增加了数据传输延迟。
+
+本文观察到，与SEBDB和FileDES相比，当查询大小变大时，TimeChain的聚类算法带来的性能改进也会增加。
+这是因为当查询大小变大时，SEBDB和FileDES通常需要从比TimeChain更多的节点获取数据，而TimeChain可以通过聚类算法减少数据获取的次数，从而减少数据传输延迟。
+
+\subsection{不同存储网络规模下的存储延迟}
 \begin{figure}[t]
     \centering
 	\begin{minipage}{0.4\linewidth}
@@ -1158,15 +1165,6 @@ $timestamp$是时间戳，记录了数据的时间信息。
         \label{fig:storage_diff_storage_nodes}
     \end{minipage}
 \end{figure}
-本文比较了三种不同查询大小数据集（Bridge、RT和WX）的查询性能，结果如~\autoref{fig:query_diff_dataset}所示。
-三个数据集中工作负载的平均查询大小分别为40、20和10。
-本文可以发现，这三种解决方案的查询延迟通常随着查询大小的增加而增加，即WX最小，RT次之，Bridge最大。
-这是因为更大的查询大小涉及了更多的聚合单元，因此可能需要去更多的存储节点获取数据，从而增加了数据传输延迟。
-
-本文观察到，与SEBDB和FileDES相比，当查询大小变大时，TimeChain的聚类算法带来的性能改进也会增加。
-这是因为当查询大小变大时，SEBDB和FileDES通常需要从比TimeChain更多的节点获取数据，而TimeChain可以通过聚类算法减少数据获取的次数，从而减少数据传输延迟。
-
-\subsection{不同存储网络规模下的存储延迟}
 本文比较了不同存储网络规模下每种解决方案的存储延迟，如~\autoref{fig:storage_diff_storage_nodes}所示。
 随着存储节点数量的增加，TimeChain的存储延迟呈下降趋势。
 这一现象的原因在于，TimeChain的网关在选择存储提供商时拥有更大的灵活性，能够从更多的节点中选择，从而增加了选择到地理位置更接近的存储节点的机会，这自然降低了数据传输的时间。
@@ -1260,6 +1258,8 @@ TimeChain不仅考虑了节点的地理位置以减少传输延迟，还考虑�
 与FileDES相比，TimeChain的数据传输延迟减少了10.9\%。
 这主要是来源于TimeChain对数据传输量的优化。
 在物联网中，局域网内传感器设备的数量众多，且这些设备通常以高频率持续生成数据。
+而且，TimeChain相比于FileDES的传输优化随着数据量的增加而增加。
+这是因为当数据量增加时，LSH树中的相似数据量也会增加，从而减少了传输的数据量，降低了网络传输延迟。
 
 如图~\autoref{fig:lsh_size_eval}所示，由于TimeChain使用LSH作为哈希算法，通过网络传输的数据量大大减少。
 这种数据量的减少不仅降低了存储和查询操作的延迟，还显著减轻了存储提供商的存储负担。
