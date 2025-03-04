@@ -3,14 +3,16 @@
 与传统集中式存储相比，基于区块链的去中心化存储系统提供了更高的安全性、透明度和更低的成本，使其成为点对点协作的理想选择。
 然而，较低的事务处理速度和较高的计算要求限制了其对于物联网时序数据等高密度数据场景中的应用。
 
-为了解决这个问题，我们提出了TimeChain，一种面向物联网时序数据的高效链下区块链存储系统。
-TimeChain对离散时序数据进行批处理，并仅将每个批次的哈希值存储在链上，而完整的数据则保留在链下。
+为解决现有区块链存储方案在物联网时序数据场景下的低效问题，我们基于链下存储方案提出了一种面向物联网时序数据的基本存储架构。
+该系统对离散时序数据进行批处理，并仅将每个批次的哈希值存储在链上，而完整的数据则保留在链下。
 这种方法显著降低了区块链上的存储开销，减少了37.4倍的存储延迟。
 
-为了进一步减少范围查询中的传输延迟，TimeChain引入了自适应打包机制。
+然而，这种基本架构在查询性能方面存在不足。
+为此，我们进一步提出了TimeChain，一个基于区块链的物联网时序数据高效可信存储系统。
+为了减少范围查询中的传输延迟，TimeChain引入了自适应打包机制。
 通过将数据和历史协同查询分别表示为图的顶点和边权重，我们将批处理问题转化为图划分问题，显著提高了查询效率。
 为了减少节点选择过程中的时延，TimeChain将节点选择和共识过程结合，提出了基于共识协议的节点选择机制。
-为了最小化数据完整性验证中的传输量，TimeChain采用了一种基于局部敏感哈希（LSH）的数据完整性校验机制。
+为了最小化数据完整性验证中的传输量，TimeChain采用了一种基于局部敏感哈希树的数据完整性校验机制。
 该机制通过仅传输非冗余部分来最大限度地减少完整性检查所需的数据量。
 
 我们基于开源组件实现了TimeChain，并对其性能进行了评估。
@@ -24,16 +26,18 @@ TimeChain对离散时序数据进行批处理，并仅将每个批次的哈希�
 Blockchain-based distributed storage systems offer enhanced security, transparency, and lower costs compared to traditional centralized storage, making them ideal for peer-to-peer collaboration. 
 However, their lower transaction processing speed and higher computational requirements demands restrict their deployment in high-density data scenarios such as the Internet of Things (IoT).
 
-To address this, we propose TimeChain, an efficient off-chain blockchain storage system for IoT time series data.
-TimeChain batches discrete time series data, storing only the hash value of each batch on-chain while keeping the complete data off-chain. 
-This significantly reduces storage overhead on the blockchain and storage latency by 37.4 times. 
+To solve the inefficiency of existing blockchain storage solutions in the IoT time series data scenario, this paper proposes a basic storage architecture for IoT time series data based on the off-chain storage solution.
+The system batches discrete time series data and stores only the hash value of each batch on the chain, while the complete data is retained off-chain.
+This approach significantly reduces the storage overhead on the blockchain and reduces storage latency by 37.4 times.
 
+However, this basic architecture still has shortcomings in query performance.
+To this end, this paper further proposes TimeChain, an efficient and trusted storage system for IoT time series data based on blockchain.
 In order to reduce the additional transmission latency in range queries, TimeChain employs an adaptive packaging mechanism. 
-We convert the batching problem to a graph partitioning problem by representing data and historical co-query as graph vertices and edge weights respectively.
-To reduce the size of the transmission size in data integrity verification, a Locality-Sensitive Hashing (LSH)-based data integrity verification mechanism, which minimizes the data required for integrity checks by transmitting only non-redundant parts. 
+TimeChain converts the batching problem to a graph partitioning problem by representing data and historical co-query as graph vertices and edge weights respectively.
+To reduce the size of the transmission size in data integrity verification, TimeChain adopts a data integrity verification mechanism based on Local Sensitive Hash (LSH) trees.
 TimeChain also integrates a node selection mechanism based on consensus protocol, which reduces the overhead by combining node selection and consensus processes.
 
-We implement TimeChain based on top of production-ready open-source components such as Hyperledger Fabric and IPFS, and evaluate the performance of TimeChain. 
+This paper implements TimeChain based on top of production-ready open-source components such as Hyperledger Fabric and IPFS, and evaluate the performance of TimeChain. 
 The result shows that compared to existing blockchain-based storage systems, TimeChain reduces 64.6\% query latency and 35.3\% storage latency on average.
 
 
