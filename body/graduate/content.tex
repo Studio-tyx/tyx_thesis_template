@@ -477,7 +477,7 @@ TimeChain正是在这样的背景下应运而生，旨在结合区块链技术�
     \centering
     \begin{minipage}{1\linewidth}
 	    \centering
-        \subfloat[查询跨越多个batch]{
+        \subfloat[查询跨越多个聚合单元]{
             \centering
             \includegraphics[width=0.3\textwidth]{timechain/batch_cdf.pdf}
             \label{fig:batch_cdf}
@@ -498,7 +498,7 @@ TimeChain正是在这样的背景下应运而生，旨在结合区块链技术�
     \end{minipage}
 \end{figure*}
 
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{范围查询跨越多个批处理单元。}
     时间序列数据的查询通常包含多个数据点，如范围查询、聚合查询、过滤查询等。
     如果批处理不当，单个查询可能会跨越多个批处理单元。
@@ -518,7 +518,7 @@ TimeChain正是在这样的背景下应运而生，旨在结合区块链技术�
     图~\autoref{fig:proof_size_cdf}显示了在数据获取阶段时，总传输数据量的各组成部分。
     从图中可以看出，数据完整性证明大小占接收数据的48.8\%，几乎是接收数据的一半。
     当网络繁忙时，大量的完整性证明数据传输会增加网络传输延迟。
-\end{enumerate}
+\end{itemize}
 
 \section{高效的链下存储架构}
 \label{sec:design}
@@ -542,14 +542,14 @@ TimeChain的索引结构是R树，可以加速物联网场景中常用的时空�
 
 \textbf{数据聚合模块：}
 本文的测量研究表明，不正确的聚合方法会增加查询的跨单元数量，从而增加网络传输延迟。
-本文构建了一个自适应的无向加权图（Undirected Weighted Graph，UWG），以基于数据拥有者的历史查询准确捕获用户查询信息（§-\autoref{sec:UWG}）。
+本文构建了一个自适应的无向加权图（Undirected Weighted Graph，UWG），以基于数据拥有者的历史查询准确捕获用户查询信息（§-\ref{sec:UWG}）。
 该图可以根据数据拥有者的历史查询记录动态更新，具有良好的适应性和准确性。
 基于本文构建的UWG，本文将数据打包成批处理单元的问题转换为聚类问题~\cite{xu2005survey}，根据用户的查询请求将所有原始数据划分为多个聚类。
 解决聚类问题的传统算法有很多，如K-means~\cite{kanungo2002efficient}、GMM~\cite{he2010laplacian}等。
 然而，这种传统的聚类算法不适合分割物联网设备生成的数据。
 这是因为在TimeChain中，用户的查询没有遵循特定的特征，这可能会导致数据图的聚类形成复杂的形状，而不是常见的圆形。
 此外，传统的聚类算法需要将所有数据划分为固定数量的集合，但并非所有集合都等于批大小，这将给索引查询带来额外的开销。
-因此，本文使用谱聚类算法来打包数据（§-\autoref{sec:ratiocut}），这非常适合处理不规则和非固定数量的聚类。
+因此，本文使用谱聚类算法来打包数据（§-\ref{sec:ratiocut}），这非常适合处理不规则和非固定数量的聚类。
 
 \textbf{存储方选择模块：}
 存储节点的\textit{选择}至关重要。
@@ -561,7 +561,7 @@ Storj~\cite{storj2018storj}、CoopEdge~\cite{yuan2021coopedge}和PipeEdge~\cite{
 换句话说，他们集中决策，但仍然面临单点失败的威胁。
 然而，使用类似于PBFT~\cite{li2020scalable}的投票机制，节点选择过程通常需要多轮任务计算和消息广播。
 如果共识过程和节点选择过程完全解耦，系统安全将受到威胁。
-为了解决这个问题，本文将节点选择过程与共识相结合，提出了一种基于共识的节点选择机制（§-\autoref{sec:consensus}）。
+为了解决这个问题，本文将节点选择过程与共识相结合，提出了一种基于共识的节点选择机制（§-\ref{sec:consensus}）。
 本文也进一步分析了该机制的安全性。
 
 \textbf{数据验证模块：}
@@ -769,13 +769,24 @@ $D'$中被聚合在一起的点表示经常被一起查询的数据点。
 \end{figure}
 
 如\autoref{fig:pbft}所示，中心化节点选择的流程如下：
-\begin{enumerate}
-    \item \textbf{决定提案}：由一个或一组节点负责评估网络中各个存储节点的信誉，根据节点的历史表现、可靠性和性能指标等因素，选择出适合承担数据存储任务的节点。
-    \item \textbf{广播}：决策节点（组）将最佳存储节点的提案广播给$3f+1$个存储节点。
-    \item \textbf{准备}：每个存储节点决策是否通过最佳存储节点的提案，并将决策结果广播给其他的存储节点。
-    \item \textbf{预提交}：当每个节点收到大于$2f+1$个相同信息（是否通过提案）时，视作该节点与其他节点的信息充分交流，并将综合的投票结果广播给其他存储节点。
-    \item \textbf{提交}：当每个节点收到$2f+1$个信息时，选择多数一致的决策记录上链。由于该网络中最多存在$f$个恶意节点，因此该阶段的决策中，虚假信息的数量一定少于诚实信息，所以该系统并不会受到恶意节点的威胁。
-\end{enumerate}
+\begin{itemize}
+    \item \textbf{决定提案}：
+    由一个或一组节点负责评估网络中各个存储节点的信誉，根据节点的历史表现、可靠性和性能指标等因素，选择出适合承担数据存储任务的节点。
+    这一阶段的目标是确保所选节点不仅具备良好的性能，还能在可靠性方面提供足够的保障。
+    \item \textbf{广播}：
+    决策节点（组）将最佳存储节点的提案广播给$3f+1$个存储节点。
+    这一广播过程确保了所有参与节点都能接收到提案信息，为后续的共识过程奠定了基础。
+    \item \textbf{准备}：
+    每个存储节点决策是否通过最佳存储节点的提案，并将决策结果广播给其他的存储节点。
+    这一阶段允许每个节点基于自身对提案的评估，表达对提案的支持或反对意见。
+    \item \textbf{预提交}：
+    当每个节点收到大于$2f+1$个相同信息（是否通过提案）时，视作该节点与其他节点的信息充分交流，并将综合的投票结果广播给其他存储节点。
+    这一阶段的目的是通过节点间的通信，达成初步的共识。
+    \item \textbf{提交}：
+    当每个节点收到$2f+1$个信息时，选择多数一致的决策记录上链。
+    由于该网络中最多存在$f$个恶意节点，因此该阶段的决策中，虚假信息的数量一定少于诚实信息，所以该系统并不会受到恶意节点的威胁。
+    这种设计确保了系统能够有效抵御恶意节点的攻击，保证了节点选择过程的安全性和可靠性。
+\end{itemize}
 
 在这样的节点选择流程中，中心化节点选择引入了单点故障的风险，即如果中心节点发生故障或被恶意攻击，整个系统的节点选择和数据存储过程可能会受到影响，导致服务中断或数据丢失。
 同时，这种中心化的节点选择也会导致系统的扩展性受限。
@@ -1074,11 +1085,11 @@ WX数据集包含1.5M条数据记录，其中包括来自五年内30多个城市
 鉴于数据收集频率相对较低，间隔最多一小时，本文假设查询范围为10。
 
 考虑到时序数据存储系统的存储特性~\cite{naqvi2017time}，本文将这三个数据集的数据格式转换为\\ $<measurement, field~name, field~value, timetamp>$。
-$measurement$ 类似于数据表，用于组织数据，例如“天气”；
+$measurement$ 类似于数据表，用于对数据进行分类和组织，例如“天气”可以作为一个$measurement$，将与天气相关的温度、湿度等数据归为一类；
 $field~name$ 用于标识不同的字段，例如“温度”；
-$field~value$存储的是实际数据，比如温度传感器的实际值；
+$field~value$存储实际的测量值或数据内容，例如温度传感器获取的数值（25℃）；
 $timestamp$是时间戳，记录了数据的时间信息。
-考虑到物联网数据的类型，本文将这些数据的大小分别固定为8B、32B、8B、8B。
+考虑到物联网数据的类型，本文将这些数据的大小分别固定为8B、32B、8B和8B。
 因此，一条数据总共占用的存储空间为56B。
 
 \section{总体性能评估}
@@ -1091,12 +1102,14 @@ $timestamp$是时间戳，记录了数据的时间信息。
     \label{fig:storage_rt_eval}
 \end{figure}
 本文比较了不同聚合单元大小下的存储延迟。
-由于物联网设备数量众多，数据生成速度快，本文将存储延迟定义为存储10000个数据的总延迟，而不是关注单个数据的细微延迟。
+由于物联网设备数量众多，数据生成速度快，本文将存储延迟定义为存储10000个数据的总延迟，而不是关注单个数据的微小延迟。
 如~\autoref{fig:storage_rt_eval}所示，相对于FileDES和SEBDB而言，TimeChain减少了至少39\%的查询延迟。
-这是因为TimeChain的独特打包机制和节点选择机制减少了数据传输延迟。
+这是因为TimeChain的高效的节点选择机制和数据验证机制。
+由于TimeChain在节点选择过程中，综合考虑了节点间的距离和历史服务记录，因此选择了更近的存储节点，减少了数据传输延迟。
+而且，TimeChain在传输数据的过程中，采用了基于LSH树的验证机制，减少了数据传输量，从而减少了存储延迟。
 
 此外，随着聚合单元大小变大，存储延迟变小。
-这是因为，对于相同数量的数据，当聚合单元较大时，数据在链中打包和记录的次数会减少。
+这是因为，对于相同体量的数据，当聚合单元较大时，数据在链中打包和记录的次数会减少。
 然而，较大的聚合单元可能会引入较大的存储等待延迟。
 因为一个聚合单元可能需要等待较长时间才可以被填满，才能被打包和记录。
 具体的聚合单元大小需要根据实际数据产生速度和用户的需求来确定。
@@ -1113,6 +1126,7 @@ $timestamp$是时间戳，记录了数据的时间信息。
 查询延迟是指基于固定查询范围随机查询数据集的平均延迟。
 由于不同数据集对应的数据生成速度与查询范围不同，经过综合权衡，本文选择了能耗和数据采集频率适用较广的RT-IFTTT数据集作为缺省查询工作负载。
 因此，本文将缺省查询范围设置为20。
+
 从~\autoref{fig:query_rt_eval}可以看出，相比于SEBDB，TimeChain平均减少了61.9\%的查询延迟；相比于FileDES，TimeChain平均减少了84.9\%的查询延迟。
 这是由于TimeChain减少了数据传输延迟，原因将在~\autoref{fig:query_breakdown}中解释。
 
@@ -1173,47 +1187,55 @@ $timestamp$是时间戳，记录了数据的时间信息。
 这是因为更大的查询大小涉及了更多的聚合单元，因此可能需要去更多的存储节点获取数据，从而增加了数据传输延迟。
 
 本文观察到，与SEBDB和FileDES相比，当查询大小变大时，TimeChain的聚类算法带来的性能改进也会增加。
-这是因为当查询大小变大时，SEBDB和FileDES通常需要从比TimeChain更多的节点获取数据，而TimeChain可以通过聚类算法减少数据获取的次数，从而减少数据传输延迟。
+具体来说，SEBDB和FileDES在处理较大的查询时，通常需要从比TimeChain更多的节点获取数据，这导致了较高的数据传输延迟。
+而TimeChain通过其先进的聚类算法，能够有效减少数据获取的次数，进而显著降低数据传输延迟，从而在面对较大查询时展现出更优的性能表现。
+这一特性使得TimeChain在处理大规模查询时具有显著的优势，能够更好地满足物联网场景下对高效数据查询的需求。
 
 \subsection{不同存储网络规模下的存储延迟}
 \begin{figure}[t]
     \centering
-	\begin{minipage}{0.4\linewidth}
+	\begin{minipage}{0.48\linewidth}
         \centering
         \includegraphics[width=1\textwidth]{timechain/query_diff_dataset.pdf}
         \caption{不同查询大小下的查询延迟}
         \label{fig:query_diff_dataset}
 	\end{minipage}
 	\quad
-	\begin{minipage}{0.4\linewidth}
+	\begin{minipage}{0.48\linewidth}
         \centering
         \includegraphics[width=1\textwidth]{timechain/storage_diff_storage_nodes.pdf}
         \caption{不同存储网络下的存储延迟}
         \label{fig:storage_diff_storage_nodes}
     \end{minipage}
 \end{figure}
-本文比较了不同存储网络规模下每种解决方案的存储延迟，如~\autoref{fig:storage_diff_storage_nodes}所示。
-随着存储节点数量的增加，TimeChain的存储延迟呈下降趋势。
-这一现象的原因在于，TimeChain的网关在选择存储提供商时拥有更大的灵活性，能够从更多的节点中选择，从而增加了选择到地理位置更接近的存储节点的机会，这自然降低了数据传输的时间。
-相比之下，FileDES和SEBDB由于采用了随机选择存储节点的机制，它们在存储节点数量增加时，并没有表现出存储延迟的显著变化。
-这种随机性导致了这两种方案在存储延迟上缺乏可预测性，且在不同存储网络规模下，它们的性能波动较大。
-由于FileDES和SEBDB在选择存储节点时没有考虑节点的具体位置信息，因此它们无法充分利用增加的节点来优化存储延迟。
-这就导致了即使在存储节点数量增加的情况下，这两种方案的存储延迟仍然保持在一个相对较高的水平，且波动较大，这在一定程度上限制了它们在大规模存储网络中的应用潜力。
+
+本文比较了不同存储网络规模下每种解决方案的存储延迟，结果如图~\autoref{fig:storage_diff_storage_nodes}所示。
+随着存储节点数量的增加，TimeChain的存储延迟呈现出明显的下降趋势。
+具体而言，当存储节点数量增加时，TimeChain可以从更多的节点中进行选择，从而增加了选择到地理位置更接近的存储节点的机会。
+这种选择机制自然降低了数据传输的时间，进而有效减少了存储延迟。
+
+相比之下，FileDES和SEBDB在存储节点数量增加时，并没有表现出存储延迟的显著变化。
+这是因为在节点选择过程中，它们根据存储节点的信誉随机选择可靠节点，而不考虑节点的具体位置信息。
+这种随机性导致了这两种方案在存储延迟上缺乏可预测性。
+在不同存储网络规模下，它们的性能波动较大，无法像TimeChain那样通过优化节点选择来降低延迟。
+由于FileDES和SEBDB在选择存储节点时没有考虑节点的具体位置信息，它们无法充分利用增加的节点来优化存储延迟。
+这就导致了即使在存储节点数量增加的情况下，这两种方案的存储延迟仍然保持在一个相对较高的水平，且波动较大。
+这种较高的延迟和较大的波动在一定程度上限制了它们在大规模存储网络中的应用潜力。
 
 \section{消融实验}
 \subsection{聚类算法}
 \begin{figure*}[t]
     \centering
-	\begin{minipage}{0.9\linewidth}
+	\begin{minipage}{1\linewidth}
         \subfloat[查询延迟]{
             \centering
-            \includegraphics[width=0.45\textwidth]{timechain/ratiocut_latency_eval.pdf}
+            \includegraphics[width=0.48\textwidth]{timechain/ratiocut_latency_eval.pdf}
             \label{fig:ratiocut_latency_eval}
         }
         \quad
         \subfloat[跨越的batch]{
             \centering
-            \includegraphics[width=0.45\textwidth]{timechain/ratiocut_batch_eval.pdf}
+            \includegraphics[width=0.48\textwidth]{timechain/ratiocut_batch_eval.pdf}
             \label{fig:ratiocut_batch_eval}
         }
         \caption{聚类算法消融实验} 
@@ -1230,16 +1252,16 @@ $timestamp$是时间戳，记录了数据的时间信息。
 
 \begin{figure*}[t]
     \centering
-    \begin{minipage}{0.9\linewidth}
+    \begin{minipage}{1\linewidth}
         \subfloat[查询延迟]{
             \centering
-            \includegraphics[width=0.45\textwidth]{timechain/consensus_latency_eval.pdf}
+            \includegraphics[width=0.48\textwidth]{timechain/consensus_latency_eval.pdf}
             \label{fig:consensus_latency_eval}
         }
         \quad
         \subfloat[存储服务质量]{
             \centering
-            \includegraphics[width=0.45\textwidth]{timechain/consensus_prob_eval.pdf}
+            \includegraphics[width=0.48\textwidth]{timechain/consensus_prob_eval.pdf}
             \label{fig:consensus_prob_eval}
         }
         \caption{节点选择消融实验} 
@@ -1262,25 +1284,25 @@ TimeChain不仅考虑了节点的地理位置以减少传输延迟，还考虑�
 这种综合考虑的方法使得TimeChain在响应时间和服务概率方面都展现出了最佳性能。
 尽管TimeChain选择的节点可能不是物理距离上最近的，但通过平衡节点的距离和服务质量，TimeChain能够提供更稳定和高效的存储服务。
 
+\subsection{LSH树}
+
 \begin{figure*}[t]
     \centering
-    \begin{minipage}{0.9\linewidth}
+    \begin{minipage}{1\linewidth}
         \subfloat[查询延迟]{
             \centering
-            \includegraphics[width=0.45\textwidth]{timechain/lsh_latency_eval.pdf}
+            \includegraphics[width=0.48\textwidth]{timechain/lsh_latency_eval.pdf}
             \label{fig:lsh_latency_eval}
         }
         \quad
         \subfloat[完整性证明大小]{
             \centering
-            \includegraphics[width=0.45\textwidth]{timechain/lsh_size_eval.pdf}
+            \includegraphics[width=0.48\textwidth]{timechain/lsh_size_eval.pdf}
             \label{fig:lsh_size_eval}
         }
         \caption{LSH树消融实验} 
     \end{minipage}
 \end{figure*}
-
-\subsection{LSH树}
 本文比较了FileDES和TimeChain的网络传输延迟，如图~\autoref{fig:lsh_latency_eval}所示。
 与FileDES相比，TimeChain的数据传输延迟减少了10.9\%。
 这主要是来源于TimeChain对数据传输量的优化。
