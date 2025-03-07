@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.4.18)  7 MAR 2025 12:52
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.4.18)  7 MAR 2025 14:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1377,7 +1377,7 @@ File: upzd.fd 2001/06/04 font definitions for U/pzd.
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
  (d:/software/texlive/2024/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
-)) (d:/software/texlive/2024/texmf-dist/tex/latex/tabularray/tabularray.sty
+))) (d:/software/texlive/2024/texmf-dist/tex/latex/tabularray/tabularray.sty
 Package: tabularray 2024-02-16 v2024A Typeset tabulars and arrays with LaTeX3
 \l__tblr_a_int=\count548
 \l__tblr_c_int=\count549
@@ -1467,7 +1467,7 @@ Package: tabularray 2024-02-16 v2024A Typeset tabulars and arrays with LaTeX3
 \l__tblr_cell_wd_dim=\dimen436
 \l__tblr_cell_ht_dim=\dimen437
 \l__tblr_diag_box=\box131
-)) (./config/path.tex) (./config/commands.tex
+) (./config/path.tex) (./config/commands.tex
 \c@definition=\count570
 \c@example=\count571
 \c@lemma=\count572
@@ -1537,12 +1537,7 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font
 \@quotelevel=\count575
 \@quotereset=\count576
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 26.
-
-
-LaTeX Warning: Unused global option(s):
-    [xelatex].
-
-(./0-Main.aux)
+ (./0-Main.aux)
 \openout1 = `0-Main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -2144,7 +2139,7 @@ Package logreq Info: Writing requests to '0-Main.run.xml'.
 Here is how much of TeX's memory you used:
  50389 strings out of 474773
  1110839 string characters out of 5757284
- 1961718 words of memory out of 5000000
+ 1961683 words of memory out of 5000000
  71612 multiletter control sequences out of 15000+600000
  577894 words of font info for 180 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
