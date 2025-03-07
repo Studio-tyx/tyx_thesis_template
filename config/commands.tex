@@ -1,0 +1,96 @@
+% common commands
+
+
+\theorembodyfont{\upshape}
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{example}{示例}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem*{proof}{证明：}
+\newcommand{\TODO}[1]{\textcolor{orange}{TODO: #1}}
+\newcommand{\AlgoName}[1]{\textsf{#1}}
+\newcommand{\FuncName}[1]{\textsf{#1}}
+\newcommand{\ProbName}[1]{\textit{#1}}
+
+
+\newcommand{\ifbooltrue}[2]{\ifthenelse{\boolean{#1}}{#2}{}}
+\newcommand{\ifboolfalse}[2]{\ifthenelse{\boolean{#1}}{}{#2}}
+
+\ifthenelse{\equal{\TwoSide}{true}}
+{
+    % TwoSide settings
+    % Use default `\cleardoublepage'
+}
+{
+    % OneSide settings
+    \renewcommand{\cleardoublepage}{\clearpage}
+}
+
+\newcommand{\bful}[1]{{\bfseries\uline{#1}}}
+
+% graduate
+\newcommand{\checkandinput}[2]
+{
+    \IfFileExists{./#1/#2}
+    {
+        \input{./#1/#2}
+    }
+    {
+        \IfFileExists{./#1/#2}
+        {
+            \input{./#1/#2}
+        }
+        {
+            \input{./#1/#2}
+        }
+    }
+}
+
+\newcommand{\inputfront}[1]
+{
+    \checkandinput{1-Front}{#1}
+}
+
+
+\newcommand{\inputbody}[1]
+{
+    \checkandinput{2-Body}{#1}
+}
+
+\newcommand{\inputpost}[1]
+{
+    \checkandinput{3-Post}{#1}
+}
+
+\newcommand{\chapternonum}[1]
+{
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}
+    \markboth{#1}{#1}
+    \chapter*{#1}
+}
+
+\newcommand{\sectionnonum}[1]
+{
+    \phantomsection
+    \addcontentsline{toc}{section}{#1}
+    \section*{#1}
+}
+
+
+% From: https://tex.stackexchange.com/questions/395856/switching-tocdepth-in-the-middle-of-a-document
+\newcommand{\changelocaltocdepth}[1]{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+  \setcounter{tocdepth}{#1}%
+}
+
+\newcommand*\emptycirc[1][1ex]{\tikz\draw (0,0) circle (#1);} 
+\newcommand*\halfcirc[1][1ex]{%
+	\begin{tikzpicture}
+	\draw[fill] (0,0)-- (90:#1) arc (90:270:#1) -- cycle ;
+	\draw (0,0) circle (#1);
+	\end{tikzpicture}}
+\newcommand*\fullcirc[1][1ex]{\tikz\fill (0,0) circle (#1);} 
+
+\definecolor{PURPLE}{RGB}{123,104,238}
+\newcommand{\tyxcmt}[1]{{\color{PURPLE}{#1}}}

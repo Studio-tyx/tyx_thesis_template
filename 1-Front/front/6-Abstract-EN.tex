@@ -1,0 +1,21 @@
+\cleardoublepage
+\chapternonum{Abstract}
+
+Blockchain-based distributed storage systems offer enhanced security, transparency, and lower costs compared to traditional centralized storage, making them ideal for peer-to-peer collaboration. 
+However, their lower transaction processing speed and higher computational requirements demands restrict their deployment in high-density data scenarios such as the Internet of Things (IoT).
+
+To solve the inefficiency of existing blockchain storage solutions in the IoT time series data scenario, this paper proposes a basic storage architecture for IoT time series data based on the off-chain storage solution.
+The system batches discrete time series data and stores only the hash value of each batch on the chain, while the complete data is retained off-chain.
+This approach significantly reduces the storage overhead on the blockchain and reduces storage latency by 37.4 times.
+
+However, this basic architecture still has shortcomings in query performance.
+To this end, this paper further proposes TimeChain, an efficient and trusted storage system for IoT time series data based on blockchain.
+In order to reduce the additional transmission latency in range queries, TimeChain employs an adaptive packaging mechanism. 
+TimeChain converts the batching problem to a graph partitioning problem by representing data and historical co-query as graph vertices and edge weights respectively.
+To reduce the size of the transmission size in data integrity verification, TimeChain adopts a data integrity verification mechanism based on Local Sensitive Hash (LSH) trees.
+TimeChain also integrates a node selection mechanism based on consensus protocol, which reduces the overhead by combining node selection and consensus processes.
+
+This paper implements TimeChain based on top of production-ready open-source components such as Hyperledger Fabric and IPFS, and evaluate the performance of TimeChain. 
+The result shows that compared to existing blockchain-based storage systems, TimeChain reduces 64.6\% query latency and 35.3\% storage latency on average.
+
+\textbf{Keywords:} IoT, Blockchain, Data Storage, Time Series Data

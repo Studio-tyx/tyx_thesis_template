@@ -1,0 +1,23 @@
+% \input{config/format/general/format}
+% \input{config/format/major//format}
+
+\newcommand{\inputformat}[1]
+{
+    \IfFileExists{config/format/general/#1}
+    {
+        \input{config/format/general/#1}
+    }{}
+}
+
+\inputformat{reference}
+\inputformat{packages}
+\inputformat{commands}
+\inputformat{caption}
+\inputformat{geometry}
+\inputformat{layout}
+\inputformat{tables}
+\inputformat{heading}
+\inputformat{fonts}
+\inputformat{numbering}
+\inputformat{code}
+\inputformat{title}

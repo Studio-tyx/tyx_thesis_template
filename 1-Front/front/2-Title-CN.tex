@@ -1,0 +1,83 @@
+\cleardoublepage
+
+\begin{center}
+    \bfseries \zihao{-2}
+    \begin{tabularx}{.8\textwidth}{>{\fangsong}X<{\centering}}
+        % \ifthenelse{\equal{\TitleLines}{1}}
+        % {
+            % TitleLines == 1
+            % \uline{\hfill \fangsong \ \Title{}\  \hfill} \\
+            % \\
+        % }
+        % {
+        %     % TitleLines == 2
+            \uline{\hfill \fangsong \TitleLineOne{} \hfill} \\
+            \uline{\hfill \fangsong \TitleLineTwo{} \hfill} \\
+        % }
+    \end{tabularx}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.11\paperwidth]{logo/zju.pdf}
+\end{center}
+
+\vskip 14pt
+
+\begin{center}
+    \bfseries \zihao{-3}
+    \begin{tabularx}{.6\textwidth}{>{\songti}l >{\fangsong}X<{\centering}}
+        论文作者签名：      &  \uline{\hfill} \\
+        指导教师签名：      &  \uline{\hfill} \\
+    \end{tabularx}
+\end{center}
+
+\vskip 10pt
+
+\begin{center}
+    \zihao{4}
+    \begin{tabularx}{.8\textwidth}{>{\songti}r >{\fangsong}X<{\centering}}
+        \ifthenelse{\equal{\BlindReview}{true}}%
+        {% For blind review
+            论文评阅人1： & \uline{\hfill} \\
+            评阅人2： & \uline{\hfill} \\
+            评阅人3： & \uline{\hfill} \\
+            评阅人4： & \uline{\hfill} \\
+            评阅人5： & \uline{\hfill} \\
+        }
+        {% For submission
+            论文评阅人1： & \uline{\hfill 隐名评阅 \hfill} \\
+            评阅人2： & \uline{\hfill 隐名评阅 \hfill} \\
+            评阅人3： & \uline{\hfill 隐名评阅 \hfill} \\
+        }
+    \end{tabularx}
+\end{center}
+
+\vskip 15pt
+
+\begin{center}
+    \zihao{4}
+    \begin{tabularx}{.92\textwidth}{>{\songti}r >{\fangsong}X<{\centering}}
+        \ifthenelse{\equal{\BlindReview}{true}}%
+        {% For blind review
+            答辩委员会主席： & \uline{\hfill} \\
+            委员1： &  \uline{\hfill} \\
+            委员2： &  \uline{\hfill} \\
+            委员3： &  \uline{\hfill} \\
+        }
+        {% For submission
+            答辩委员会主席： & \uline{\hfill 柳晴/百人计划研究员/浙江大学\hfill} \\
+            委员1： &  \uline{\hfill 张治坤/百人计划研究员/浙江大学 \hfill} \\
+            委员2： &  \uline{\hfill 吴晓凡/高级工程师/网易公司 \hfill} \\
+            委员3： &  \uline{\hfill 吕嘉美/特聘研究员/浙江大学 \hfill} \\
+        }
+    \end{tabularx}
+\end{center}
+
+\vskip 15pt
+
+\begin{center}
+    \zihao{-3}
+    \begin{tabularx}{.5\textwidth}{>{\songti}l >{\fangsong}X<{\centering}}
+        答辩日期 & \uline{\hfill 2025年03月06日 \hfill}
+    \end{tabularx}
+\end{center}

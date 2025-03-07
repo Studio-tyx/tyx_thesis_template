@@ -1,0 +1,65 @@
+\coverstyle
+\newgeometry{
+    vmargin=2.0cm,
+    hmargin=2.6cm,
+}
+\inputfront{front/1-Cover-CN}
+\newgeometry{
+    vmargin=2.0cm,
+    hmargin=3.1cm,
+}
+\inputfront{front/2-Title-CN}
+\inputfront{front/3-Title-EN}
+\newgeometry{
+    vmargin=3.3cm
+}
+\inputfront{front/4-AutherClaim}
+
+\prevstyle
+
+%---------- abstract ----------------------
+
+\cleardoublepage
+\pagenumbering{roman}
+\setlength{\baselineskip}{20pt}
+\inputfront{front/5-Abstract-CN}
+
+\inputfront{front/6-Abstract-EN}
+
+%--------- catalogue ------------------------
+\doublespacing
+\cleardoublepage
+
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+\setlength\cftaftertoctitleskip{10pt}
+\setlength\cftafterloftitleskip{10pt}
+\setlength\cftafterlottitleskip{10pt}
+
+\renewcommand{\cfttoctitlefont}{\hfill\zihao{-2}\bfseries\centering}
+\renewcommand{\cftloftitlefont}{\hfill\zihao{-2}\bfseries\centering}
+\renewcommand{\cftlottitlefont}{\hfill\zihao{-2}\bfseries\centering}
+
+\phantomsection
+\markloc
+\tableofcontents
+
+\setlength{\cfttabindent}{0pt}
+\setlength{\cftfigindent}{0pt}
+
+% \cftsetindents{figure}{0em}{2.5em}
+% \cftsetindents{table}{0em}{2.5em}
+
+\begingroup
+    \renewcommand*{\addvspace}[1]{}
+    \cleardoublepage
+    \phantomsection
+    \marklof
+    \listoffigures
+
+    \cleardoublepage
+    \phantomsection
+    \marklot
+    \listoftables
+\endgroup

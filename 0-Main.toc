@@ -1,0 +1,64 @@
+\contentsline {chapter}{摘要}{i}{section*.1}%
+\contentsline {chapter}{Abstract}{ii}{section*.3}%
+\contentsline {chapter}{目录}{I}{section*.5}%
+\contentsline {chapter}{图目录}{IV}{section*.6}%
+\contentsline {chapter}{表目录}{V}{section*.7}%
+\contentsline {chapter}{\numberline {第1章\hspace {.3em}}绪论}{1}{chapter.0.1}%
+\contentsline {section}{\numberline {1.1}研究背景及意义}{1}{section.0.1.1}%
+\contentsline {section}{\numberline {1.2}论文主要工作}{3}{section.0.1.2}%
+\contentsline {section}{\numberline {1.3}全文结构}{6}{section.0.1.3}%
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}相关工作}{8}{chapter.0.2}%
+\contentsline {section}{\numberline {2.1}面向物联网时序数据的集中式存储系统}{8}{section.0.2.1}%
+\contentsline {section}{\numberline {2.2}面向物联网时序数据的分布式存储系统}{9}{section.0.2.2}%
+\contentsline {section}{\numberline {2.3}基于区块链的存储系统}{10}{section.0.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}面向交易数据的链上存储}{11}{subsection.0.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}面向文件数据的链下存储}{13}{subsection.0.2.3.2}%
+\contentsline {section}{\numberline {2.4}本章小结}{15}{section.0.2.4}%
+\contentsline {chapter}{\numberline {第3章\hspace {.3em}}基于区块链存储系统的测量与研究}{17}{chapter.0.3}%
+\contentsline {section}{\numberline {3.1}基于区块链存储系统的架构}{17}{section.0.3.1}%
+\contentsline {section}{\numberline {3.2}基于区块链存储系统的测量}{19}{section.0.3.2}%
+\contentsline {section}{\numberline {3.3}性能瓶颈的根本原因}{20}{section.0.3.3}%
+\contentsline {section}{\numberline {3.4}高效的链下存储架构}{21}{section.0.3.4}%
+\contentsline {section}{\numberline {3.5}本章小结}{23}{section.0.3.5}%
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}面向链下存储的自适应聚合机制}{24}{chapter.0.4}%
+\contentsline {section}{\numberline {4.1}基于历史查询的自适应图构建过程}{24}{section.0.4.1}%
+\contentsline {section}{\numberline {4.2}基于谱聚类算法的封装机制}{25}{section.0.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}聚类算法选择}{25}{subsection.0.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}数据封装过程}{27}{subsection.0.4.2.2}%
+\contentsline {section}{\numberline {4.3}本章小结}{28}{section.0.4.3}%
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}基于共识协议的节点选择机制}{29}{chapter.0.5}%
+\contentsline {section}{\numberline {5.1}中心化节点选择}{29}{section.0.5.1}%
+\contentsline {section}{\numberline {5.2}结合共识的节点选择过程}{31}{section.0.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}准备阶段}{31}{subsection.0.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}预提交阶段}{33}{subsection.0.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}提交阶段}{33}{subsection.0.5.2.3}%
+\contentsline {section}{\numberline {5.3}共识过程的安全性分析}{34}{section.0.5.3}%
+\contentsline {section}{\numberline {5.4}本章小结}{34}{section.0.5.4}%
+\contentsline {chapter}{\numberline {第6章\hspace {.3em}}基于LSH树的验证机制}{35}{chapter.0.6}%
+\contentsline {section}{\numberline {6.1}LSH树结构与工作流程}{35}{section.0.6.1}%
+\contentsline {section}{\numberline {6.2}LSH树的尾部合并机制}{37}{section.0.6.2}%
+\contentsline {section}{\numberline {6.3}LSH树的安全性分析}{38}{section.0.6.3}%
+\contentsline {section}{\numberline {6.4}本章小结}{39}{section.0.6.4}%
+\contentsline {chapter}{\numberline {第7章\hspace {.3em}}实验结果与分析}{40}{chapter.0.7}%
+\contentsline {section}{\numberline {7.1}实验设置}{40}{section.0.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}基线}{40}{subsection.0.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}数据集和工作负载}{41}{subsection.0.7.1.2}%
+\contentsline {section}{\numberline {7.2}总体性能评估}{42}{section.0.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}存储延迟}{42}{subsection.0.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}查询延迟}{43}{subsection.0.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}查询延迟分解}{44}{subsection.0.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}支持的最大存储设备数量}{45}{subsection.0.7.2.4}%
+\contentsline {section}{\numberline {7.3}性能影响因素评估}{46}{section.0.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}不同查询大小下的查询延迟}{46}{subsection.0.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}不同存储网络规模下的存储延迟}{46}{subsection.0.7.3.2}%
+\contentsline {section}{\numberline {7.4}消融实验}{47}{section.0.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}聚类算法}{47}{subsection.0.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}节点选择}{48}{subsection.0.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}LSH树}{49}{subsection.0.7.4.3}%
+\contentsline {section}{\numberline {7.5}本章小结}{50}{section.0.7.5}%
+\contentsline {chapter}{\numberline {第8章\hspace {.3em}}总结与展望}{51}{chapter.0.8}%
+\contentsline {section}{\numberline {8.1}总结研究}{51}{section.0.8.1}%
+\contentsline {section}{\numberline {8.2}未来工作}{52}{section.0.8.2}%
+\contentsline {chapter}{参考文献}{54}{section*.36}%
+\contentsline {chapter}{作者简历}{59}{section*.38}%
+\contentsline {chapter}{致谢}{61}{section*.40}%

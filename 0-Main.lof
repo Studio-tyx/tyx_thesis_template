@@ -1,0 +1,45 @@
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces 2015-2027年全球物联网设备预测数量}}{2}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces 基于区块链的物联网时序数据高效可信存储技术研究内容}}{6}{figure.caption.9}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ceph存储流程}}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces SEBDB数据结构}}{11}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces 默克尔帕特里夏树结构}}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 去中心化存储系统}}{14}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces 半去中心化存储系统}}{14}{figure.caption.13}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 基于区块链的存储系统的工作流}}{18}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 区块链存储系统的性能}}{19}{figure.caption.16}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {存储时延}}}{19}{figure.caption.16}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {查询时延}}}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 性能低下的根本原因}}{20}{figure.caption.17}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {查询跨越多个聚合单元}}}{20}{figure.caption.17}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {不正确的存储节点选择}}}{20}{figure.caption.17}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {传输数据较大}}}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces TimeChain架构}}{21}{figure.caption.18}%
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 中心化节点选择的工作流}}{30}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 基于共识的节点选择机制工作流}}{31}{figure.caption.23}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces 默克尔树的结构}}{36}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces LSH树的结构}}{37}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces 非满二叉LSH树}}{38}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces 尾部合并下的非满二叉LSH树}}{39}{figure.caption.27}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces TimeChain与基线的存储延迟对比}}{42}{figure.caption.28}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces TimeChain与基线的查询延迟对比}}{43}{figure.caption.29}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces 查询延迟分解对比}}{44}{figure.caption.30}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces 最大支持存储设备数}}{45}{figure.caption.31}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces 不同查询大小下的查询延迟}}{46}{figure.caption.32}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces 不同存储网络下的存储延迟}}{46}{figure.caption.32}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces 聚类算法消融实验}}{47}{figure.caption.33}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {查询延迟}}}{47}{figure.caption.33}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {跨越的batch}}}{47}{figure.caption.33}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces 节点选择消融实验}}{48}{figure.caption.34}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {查询延迟}}}{48}{figure.caption.34}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {存储服务质量}}}{48}{figure.caption.34}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces LSH树消融实验}}{49}{figure.caption.35}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {查询延迟}}}{49}{figure.caption.35}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {完整性证明大小}}}{49}{figure.caption.35}%
+\addvspace {10.0pt}

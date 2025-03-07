@@ -1,0 +1,101 @@
+\cleardoublepage
+
+{
+\begin{center}
+    % Chinese zihao{3} == English 16pt
+    \bfseries \zihao{3}
+    \begin{tabularx}{.8\textwidth}{X<{\centering}}
+        \ifthenelse{\equal{\TitleEngLines}{1}}
+        {
+            % TitleEngLines == 1
+            \uline{\hfill \TitleEng{} \hfill} \\
+            \uline{\hfill} \\
+        }
+        {
+            \ifthenelse{\equal{\TitleEngLines}{2}}
+            {
+                % TitleEngLines == 2
+                \uline{\hfill \TitleEngLineOne{} \hfill} \\
+                \uline{\hfill \TitleEngLineTwo{} \hfill} \\
+            }
+            {
+                % TitleEngLines == 3
+                \uline{\hfill \TitleEngLineOne{} \hfill} \\
+                \uline{\hfill \TitleEngLineTwo{} \hfill} \\
+                \uline{\hfill \TitleEngLineThree{} \hfill} \\
+            }
+        }
+    \end{tabularx}
+\end{center}
+
+\vskip 6pt
+
+\begin{center}
+    \includegraphics[width=0.11\paperwidth]{logo/zju.pdf}
+\end{center}
+
+\vskip 14pt
+
+\begin{center}
+    \bfseries \zihao{-3}
+    \begin{tabularx}{.6\textwidth}{r X<{\centering}}
+        Author's signature：      &  \uline{\hfill} \\
+        Supervisor's signature：  &  \uline{\hfill} \\
+    \end{tabularx}
+\end{center}
+
+\vskip 10pt
+
+\begin{center}
+    \zihao{4}
+    \begin{tabularx}{.75\textwidth}{r X<{\centering}}
+        \ifthenelse{\equal{\BlindReview}{true}}%
+        {% For blind review
+            Thesis reviewer 1:  & \uline{\hfill} \\
+            Thesis reviewer 2:  & \uline{\hfill} \\
+            Thesis reviewer 3:  & \uline{\hfill} \\
+        }
+        {% For submission
+            Thesis reviewer 1:  & \uline{\hfill {\zihao{-4}Anonymous review} \hfill} \\
+            Thesis reviewer 2:  & \uline{\hfill {\zihao{-4}Anonymous review} \hfill} \\
+            Thesis reviewer 3:  & \uline{\hfill {\zihao{-4}Anonymous review} \hfill} \\
+        }
+    \end{tabularx}
+\end{center}
+
+\vskip 14pt 
+
+\begin{center}
+    \zihao{4}
+    \begin{tabularx}{\textwidth}{l X<{\centering}}
+        \ \ \ \ \ \ \ \ Chair:  & \uline{\hfill {\zihao{-4}Qing Liu, Researcher, Zhejiang University} \hfill} \\
+    \end{tabularx}
+\end{center}
+\vspace{-0.25in}
+(Committee of oral defence)
+\vspace{-0.4in}
+\begin{center}
+    \zihao{4}
+    \begin{tabularx}{1.03\textwidth}{l X<{\centering}}
+    \ifthenelse{\equal{\BlindReview}{true}}%
+    {
+        Committeeman 1:  & \uline{\hfill} \\
+        Committeeman 2:  & \uline{\hfill} \\
+        Committeeman 3:  & \uline{\hfill} \\
+    }{
+        Committeeman 1: & \uline{\hfill {\zihao{-4}Zhikun Zhang, Researcher, Zhejiang University} \hfill} \\
+        Committeeman 2: & \uline{\hfill {\zihao{-4}Xiaofan Wu, Senior Engineer, NetEase Group} \hfill} \\
+        Committeeman 3: & \uline{\hfill {\zihao{-4}Jiamei Lv, Researcher, Zhejiang University} \hfill} \\
+    }
+    \end{tabularx}
+\end{center}
+
+\vskip 14pt
+
+\begin{center}
+    \zihao{-3}
+    \begin{tabularx}{.5\textwidth}{l X<{\centering}}
+        Date of oral defence: & \uline{\hfill 2025.03.06 \hfill}
+    \end{tabularx}
+\end{center}
+}
