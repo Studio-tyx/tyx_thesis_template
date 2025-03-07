@@ -17,6 +17,7 @@
     \renewcommand{\headrulewidth}{0pt}
 }
 
+<<<<<<< HEAD
 
 \renewcommand{\chaptermark}[1]{\markboth{\CTEXthechapter\quad#1}{}}
 \newcommand{\commonhead}
@@ -39,6 +40,64 @@
     \fancyfoot[C]{\zihao{5}\thepage}
 }
 \setlength{\cftparskip}{-5pt}
+=======
+\ifthenelse{\equal{\Degree}{undergraduate}}
+{
+    % Common header & footer
+    \newcommand{\commonhead}
+    {
+        \fancyhead{}
+        \fancyhead[EL]{\zihao{-5} \songti \TitleTypeName}
+        \fancyhead[OR]{\zihao{-5} \songti \Title}
+        \renewcommand{\headrulewidth}{0.6pt}
+    }
+    % Common page header & footer
+    \fancypagestyle{common}
+    {
+        \commonhead{}
+        \fancyfoot{}
+        \fancyfoot[C]{\zihao{-5} \thepage}
+    }
+    % Previous part header & footer
+    \fancypagestyle{previous}
+    {
+        \commonhead{}
+        \fancyfoot{}
+        \fancyfoot[C]{\zihao{-5}\thepage}
+    }
+}
+{
+    \renewcommand{\chaptermark}[1]{\markboth{\CTEXthechapter\quad#1}{}}
+    \newcommand{\commonhead}
+    {
+        \fancyhead{}
+        \fancyhead[L]{\zihao{-5} \songti \TitleTypeName}
+        \fancyhead[R]{\zihao{-5} \songti \leftmark}
+        \renewcommand{\headrulewidth}{0.6pt}
+    }
+    \fancypagestyle{common}
+    {
+        \commonhead{}
+        \fancyfoot{}
+        \ifthenelse{\equal{\TwoSide}{true}}{
+            \fancyfoot[OR,EL]{\zihao{-5} \songti \thepage}
+        }{
+            \fancyfoot[C]{\zihao{-5} \songti \thepage}            
+        }
+    }
+    \fancypagestyle{previous}
+    {
+        \fancyhead{}
+        \fancyfoot{}
+        \ifthenelse{\equal{\TwoSide}{true}}{
+            \fancyfoot[OR,EL]{\zihao{-5} \songti \thepage}
+        }{
+            \fancyfoot[C]{\zihao{-5} \songti \thepage}            
+        }
+        \renewcommand{\headrulewidth}{0pt}
+    }
+}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 
 % Explicitly remove plain page style
 \fancypagestyle{plain}
@@ -121,6 +180,7 @@
 \setlength{\cftbeforechapskip}  {0em}
 
 % graduate template listoffigures/tables
+<<<<<<< HEAD
 % listoffigures
 \renewcommand{\cftfigpresnum}{\figurename\enspace}
 \newlength{\listoffiguresnamelen}
@@ -138,6 +198,34 @@
 % \newlength{\listofalgotocloftsnamelen}
 % \settowidth{\listofalgotocloftsnamelen}{\cftalgotocloftpresnum\cftalgotocloftaftersnum}
 % \addtolength{\cftalgotocloftnumwidth}{\listofalgotocloftsnamelen}
+=======
+\ifthenelse{\equal{\Degree}{graduate}}
+{
+    % listoffigures
+    \renewcommand{\cftfigpresnum}{\figurename\enspace}
+    \newlength{\listoffiguresnamelen}
+    \settowidth{\listoffiguresnamelen}{\cftfigpresnum\cftfigaftersnum}
+    \addtolength{\cftfignumwidth}{\listoffiguresnamelen}
+
+    % listoftables
+    \renewcommand{\cfttabpresnum}{\tablename\enspace}
+    \newlength{\listoftablesnamelen}
+    \settowidth{\listoftablesnamelen}{\cfttabpresnum\cfttabaftersnum}
+    \addtolength{\cfttabnumwidth}{\listoftablesnamelen}
+
+    % listofalgorithms
+    \renewcommand{\cftalgotocloftpresnum}{\algotocloftname\enspace}
+    \newlength{\listofalgotocloftsnamelen}
+    \settowidth{\listofalgotocloftsnamelen}{\cftalgotocloftpresnum\cftalgotocloftaftersnum}
+    \addtolength{\cftalgotocloftnumwidth}{\listofalgotocloftsnamelen}
+}
+{}
+
+\newcommand{\resetpagecounter}
+{
+    \setcounter{page}{1}
+}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 
 \newcommand{\coverstyle}
 {
@@ -146,6 +234,7 @@
 
 \newcommand{\prevstyle}
 {
+<<<<<<< HEAD
     \newgeometry{
         % a4paper,
         marginpar=0pt,
@@ -155,12 +244,18 @@
         headsep=4mm,
         footskip=8mm
     }
+=======
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
     \cleardoublepage{}
     \assignpagestyle{\chapter}{previous}
     \thispagestyle{previous}
     \pagestyle{previous}
     \pagenumbering{Roman}
+<<<<<<< HEAD
     \setcounter{page}{1}
+=======
+    \resetpagecounter{}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
     \numberingstyle{}
 }
 
@@ -171,20 +266,41 @@
     \thispagestyle{common}
     \pagestyle{common}
     \pagenumbering{arabic}
+<<<<<<< HEAD
     \setcounter{page}{1}
     \setlength{\baselineskip}{20pt}
+=======
+    \resetpagecounter{}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \newcommand{\poststyle}
 {
     \cleardoublepage{}
+<<<<<<< HEAD
     \assignpagestyle{\chapter}{common}
     \thispagestyle{common}
     \pagestyle{common}
+=======
+    \ifthenelse{\equal{\Degree}{graduate}}
+    {
+        \assignpagestyle{\chapter}{common}
+        \thispagestyle{common}
+        \pagestyle{common}
+    }
+    {
+        \assignpagestyle{\chapter}{empty}
+        \thispagestyle{empty}
+        \pagestyle{empty}
+    }
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 % Bib layout
 \setlength{\bibitemsep}{0ex}
 \setlength{\bibnamesep}{0ex}
 \setlength{\bibinitsep}{0ex}
+<<<<<<< HEAD
 % \setlength{\parskip}{20pt}
+=======
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130

@@ -14,8 +14,13 @@
     \counterwithin*{equation}{section}
     \renewcommand{\theequation}{\arabic{section}-\arabic{equation}}
 
+<<<<<<< HEAD
     \counterwithin*{algocf}{section}
     \renewcommand{\thealgocf}{\arabic{section}.\arabic{algocf}}
+=======
+    \counterwithin*{algorithm}{section}
+    \renewcommand{\thealgorithm}{\arabic{section}.\arabic{algorithm}}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \newcommand{\chaptermajornumbering}
@@ -32,8 +37,13 @@
     \counterwithin*{equation}{chapter}
     \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 
+<<<<<<< HEAD
     \counterwithin*{algocf}{chapter}
     \renewcommand{\thealgocf}{\arabic{chapter}.\arabic{algocf}}
+=======
+    \counterwithin*{algorithm}{chapter}
+    \renewcommand{\thealgorithm}{\arabic{chapter}.\arabic{algorithm}}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \newcommand{\appendixsubsecmajornumbering}
@@ -58,8 +68,13 @@
     \counterwithin*{equation}{subsection}
     \renewcommand{\theequation}{\Alph{subsection}-\arabic{equation}}
 
+<<<<<<< HEAD
     \counterwithin*{algocf}{subsection}
     \renewcommand{\thealgocf}{\Alph{subsection}.\arabic{algocf}}
+=======
+    \counterwithin*{algorithm}{subsection}
+    \renewcommand{\thealgorithm}{\Alph{subsection}.\arabic{algorithm}}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \newcommand{\removeappendixsubsecmajornumbering}
@@ -68,7 +83,11 @@
     \counterwithout*{table}{subsection}
     \counterwithout*{lstlisting}{subsection}
     \counterwithout*{equation}{subsection}
+<<<<<<< HEAD
     \counterwithout*{algocf}{subsection}
+=======
+    \counterwithout*{algorithm}{subsection}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \newcommand{\appendixsecmajornumbering}
@@ -93,8 +112,13 @@
     \counterwithin*{equation}{section}
     \renewcommand{\theequation}{\Alph{section}-\arabic{equation}}
 
+<<<<<<< HEAD
     \counterwithin*{algocf}{section}
     \renewcommand{\thealgocf}{\Alph{section}.\arabic{algocf}}
+=======
+    \counterwithin*{algorithm}{section}
+    \renewcommand{\thealgorithm}{\Alph{section}.\arabic{algorithm}}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \newcommand{\removeappendixsecmajornumbering}
@@ -103,10 +127,30 @@
     \counterwithout*{table}{section}
     \counterwithout*{lstlisting}{section}
     \counterwithout*{equation}{section}
+<<<<<<< HEAD
     \counterwithout*{algocf}{section}
+=======
+    \counterwithout*{algorithm}{section}
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \newcommand{\numberingstyle}
 {
+<<<<<<< HEAD
     \chaptermajornumbering
+=======
+    \ifthenelse{\equal{\Degree}{undergraduate}}
+    {
+        \ifthenelse{\equal{\undergradcurrstage}{proposal}}
+        {
+            \chaptermajornumbering
+        }
+        {
+            \sectionmajornumbering
+        }
+    }
+    {
+        \chaptermajornumbering
+    }
+>>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
