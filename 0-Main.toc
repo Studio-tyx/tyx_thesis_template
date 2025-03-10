@@ -47,18 +47,18 @@
 \contentsline {subsection}{\numberline {7.2.1}存储延迟}{42}{subsection.0.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}查询延迟}{43}{subsection.0.7.2.2}%
 \contentsline {subsection}{\numberline {7.2.3}查询延迟分解}{44}{subsection.0.7.2.3}%
-\contentsline {subsection}{\numberline {7.2.4}支持的最大存储设备数量}{45}{subsection.0.7.2.4}%
-\contentsline {section}{\numberline {7.3}性能影响因素评估}{46}{section.0.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}不同查询大小下的查询延迟}{46}{subsection.0.7.3.1}%
+\contentsline {subsection}{\numberline {7.2.4}支持的最大存储设备数量}{44}{subsection.0.7.2.4}%
+\contentsline {section}{\numberline {7.3}性能影响因素评估}{45}{section.0.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}不同查询大小下的查询延迟}{45}{subsection.0.7.3.1}%
 \contentsline {subsection}{\numberline {7.3.2}不同存储网络规模下的存储延迟}{46}{subsection.0.7.3.2}%
 \contentsline {section}{\numberline {7.4}消融实验}{47}{section.0.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}聚类算法}{47}{subsection.0.7.4.1}%
 \contentsline {subsection}{\numberline {7.4.2}节点选择}{48}{subsection.0.7.4.2}%
 \contentsline {subsection}{\numberline {7.4.3}LSH树}{49}{subsection.0.7.4.3}%
-\contentsline {section}{\numberline {7.5}本章小结}{50}{section.0.7.5}%
+\contentsline {section}{\numberline {7.5}本章小结}{49}{section.0.7.5}%
 \contentsline {chapter}{\numberline {第8章\hspace {.3em}}总结与展望}{51}{chapter.0.8}%
 \contentsline {section}{\numberline {8.1}总结研究}{51}{section.0.8.1}%
 \contentsline {section}{\numberline {8.2}未来工作}{52}{section.0.8.2}%
 \contentsline {chapter}{参考文献}{54}{section*.36}%
-\contentsline {chapter}{作者简历}{59}{section*.38}%
-\contentsline {chapter}{致谢}{61}{section*.40}%
+\contentsline {chapter}{作者简历}{60}{section*.38}%
+\contentsline {chapter}{致谢}{62}{section*.40}%

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.4.18)  7 MAR 2025 12:52
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.4.18)  10 MAR 2025 13:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1377,7 +1377,7 @@ File: upzd.fd 2001/06/04 font definitions for U/pzd.
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
  (d:/software/texlive/2024/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
-)) (d:/software/texlive/2024/texmf-dist/tex/latex/tabularray/tabularray.sty
+))) (d:/software/texlive/2024/texmf-dist/tex/latex/tabularray/tabularray.sty
 Package: tabularray 2024-02-16 v2024A Typeset tabulars and arrays with LaTeX3
 \l__tblr_a_int=\count548
 \l__tblr_c_int=\count549
@@ -1467,7 +1467,7 @@ Package: tabularray 2024-02-16 v2024A Typeset tabulars and arrays with LaTeX3
 \l__tblr_cell_wd_dim=\dimen436
 \l__tblr_cell_ht_dim=\dimen437
 \l__tblr_diag_box=\box131
-)) (./config/path.tex) (./config/commands.tex
+) (./config/path.tex) (./config/commands.tex
 \c@definition=\count570
 \c@example=\count571
 \c@lemma=\count572
@@ -1537,12 +1537,7 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font
 \@quotelevel=\count575
 \@quotereset=\count576
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 26.
-
-
-LaTeX Warning: Unused global option(s):
-    [xelatex].
-
-(./0-Main.aux)
+ (./0-Main.aux)
 \openout1 = `0-Main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -2026,9 +2021,7 @@ File: figures/timechain/tail_merging_tail.pdf Graphic file (type pdf)
 [40
 
 
-]
-Missing character: There is no ℃ (U+2103) in font [./fonts/TimesNewRoman]/OT:script=latn;language=dflt;mapping=tex-text;!
-[41]
+] [41]
 File: figures/timechain/storage_rt_eval.pdf Graphic file (type pdf)
 <use figures/timechain/storage_rt_eval.pdf>
  [42]
@@ -2060,7 +2053,6 @@ Overfull \hbox (8.86324pt too wide) in paragraph at lines 212--219
 []\TU/FangSong(0)/m/n/12.045 本 文 比 较 了 聚 类 算 法 的 效 果，|  并 将 \TU/TimesNewRoman(0)/m/n/12.045 TimeChain \TU/FangSong(0)/m/n/12.045 与 \TU/TimesNewRoman(0)/m/n/12.045 SEBDB \TU/FangSong(0)/m/n/12.045 进 行 了 比 较。|  如[]图 \TU/TimesNewRoman(0)/m/n/12.045 7.7[][](a)
  []
 
-[47]
 File: figures/timechain/consensus_latency_eval.pdf Graphic file (type pdf)
 <use figures/timechain/consensus_latency_eval.pdf>
 File: figures/timechain/consensus_prob_eval.pdf Graphic file (type pdf)
@@ -2070,7 +2062,7 @@ Overfull \hbox (9.24986pt too wide) in paragraph at lines 226--232
 [][]  [][] 
  []
 
-[48]
+[47]
 File: figures/timechain/lsh_latency_eval.pdf Graphic file (type pdf)
 <use figures/timechain/lsh_latency_eval.pdf>
 File: figures/timechain/lsh_size_eval.pdf Graphic file (type pdf)
@@ -2080,7 +2072,7 @@ Overfull \hbox (9.24986pt too wide) in paragraph at lines 261--267
 [][]  [][] 
  []
 
-
+[48]
 Overfull \hbox (5.75691pt too wide) in paragraph at lines 271--277
 \TU/TimesNewRoman(0)/m/n/12.045 FileDES \TU/FangSong(0)/m/n/12.045 相 比，| \TU/TimesNewRoman(0)/m/n/12.045 TimeChain \TU/FangSong(0)/m/n/12.045 的 数 据 传 输 延 迟 减 少 了 \TU/TimesNewRoman(0)/m/n/12.045 10.9%\TU/FangSong(0)/m/n/12.045 。|  这 主 要 是 来 源 于 \TU/TimesNewRoman(0)/m/n/12.045 TimeChain
  []
@@ -2093,7 +2085,7 @@ Overfull \hbox (5.75691pt too wide) in paragraph at lines 271--277
 ] [52]) [53] [54
 
 
-] [55] [56] [57]) (./3-Post/post.tex [58] (./3-Post/post/1-Resume.tex
+] [55] [56] [57] [58]) (./3-Post/post.tex [59] (./3-Post/post/1-Resume.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
@@ -2113,11 +2105,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
-[59
+[60
 
 
 
-]) (./3-Post/post/2-Acknowledgement.tex [60] [61
+]) (./3-Post/post/2-Acknowledgement.tex [61] [62
 
 
 ]))
@@ -2128,7 +2120,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--33
 \tf@thm=\write9
 \openout9 = `0-Main.thm'.
 
-[62] (./0-Main.aux)
+[63] (./0-Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -2142,12 +2134,12 @@ Package logreq Info: Writing requests to '0-Main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50389 strings out of 474773
- 1110839 string characters out of 5757284
- 1961718 words of memory out of 5000000
- 71612 multiletter control sequences out of 15000+600000
+ 50469 strings out of 474773
+ 1114712 string characters out of 5757284
+ 1962803 words of memory out of 5000000
+ 71692 multiletter control sequences out of 15000+600000
  577894 words of font info for 180 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,22n,111p,1246b,5420s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,22n,111p,1246b,5426s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 0-Main.xdv (73 pages, 1104792 bytes).
+Output written on 0-Main.xdv (74 pages, 1139076 bytes).

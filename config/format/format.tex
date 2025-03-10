@@ -1,32 +1,12 @@
 % \input{config/format/general/format}
-<<<<<<< HEAD
 % \input{config/format/major//format}
 
 \newcommand{\inputformat}[1]
 {
-=======
-% \input{config/format/major/\MajorFormat/format}
-
-\newcommand{\inputformat}[1]
-{
-    % For each format file `xxx.tex', do the following (the order matters):
-    %   1. Input config/format/general/xxx.tex            if exists
-    %   2. Input config/format/major/\MajorFormat/xxx.tex if exists
-
->>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
     \IfFileExists{config/format/general/#1}
     {
         \input{config/format/general/#1}
     }{}
-<<<<<<< HEAD
-=======
-
-    \IfFileExists{config/format/major/\MajorFormat/#1}
-    {
-        \input{config/format/major/\MajorFormat/#1}
-    }{}
-
->>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 }
 
 \inputformat{reference}
@@ -39,10 +19,5 @@
 \inputformat{heading}
 \inputformat{fonts}
 \inputformat{numbering}
-<<<<<<< HEAD
-=======
-\inputformat{debugging}
-\inputformat{language}
->>>>>>> 05e4bc90f732a2256057f2801e3d7031b6f66130
 \inputformat{code}
 \inputformat{title}
